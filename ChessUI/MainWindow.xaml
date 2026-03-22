@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChessUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        
 
+        Title="ChessGame"
+        Height="600" Width="600"
+        Icon="Assets/icon.ico">
+
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/Board.png" />
+        </Grid.Background>
     </Grid>
 </Window>
