@@ -14,13 +14,13 @@ This project was created to practice game logic, clean architecture, and desktop
 
 ---
 
-## 🎥 Demo
+## 🎥 Video
 
 <!-- Replace the link below with your video (YouTube / MP4 / GIF) -->
-[Watch Demo](#)
+[Watch Video](#)
 
 <!-- Alternative (if you upload a video or gif in your repo) -->
-<!-- ![Demo](./assets/demo.gif) -->
+<!-- ![Video](./assets/Video.gif) -->
 
 ---
 
