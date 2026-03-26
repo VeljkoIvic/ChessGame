@@ -25,7 +25,7 @@
             <UniformGrid x:Name="PieceGrid"
                          Rows="8"
                          Columns="8"
-                >
+                         RenderOptions.BitmapScalingMode="HighQuality">
 
             </UniformGrid>
         </Grid>
