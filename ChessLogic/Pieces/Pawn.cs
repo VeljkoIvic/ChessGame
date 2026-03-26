@@ -5,9 +5,20 @@ public class Pawn : Piece
     public override PieceType Type => PieceType.Pawn;
     public override Player Color { get; }
 
+    private readonly Direction forward;
+
     public Pawn(Player color)
     {
         Color = color;
+
+        if (color == Player.White)
+        {
+            forward = Direction.North;
+        }
+        else if (color == Player.Black)
+        {
+            forward = Direction.South;
+        }
     }
 
     public override Piece Copy()
@@ -16,4 +27,53 @@ public class Pawn : Piece
         copy.HasMoved = HasMoved;
         return copy;
     }
+
+    private static bool CanMoveTo(Position pos, Board board)
+    {
+        return Board.IsInside(pos) && board.IsEmpty(pos);
+    }
+
+    private bool CanCapture(Position pos, Board board)
+    {
+        if (!Board.IsInside(pos) || board.IsEmpty(pos))
+        {
+            return false;
+        }
+        return board[pos].Color != Color;
+    }
+
+    private IEnumerable<Move> ForwardMoves(Position from, Board board)
+    {
+        Position oneMovePos = from + forward;
+
+        if (CanMoveTo(oneMovePos, board))
+        {
+            yield return new NormalMove(from, oneMovePos);
+
+            Position twoMovePos = from + forward;
+
+            if (!HasMoved && CanMoveTo(twoMovePos, board))
+            {
+                yield return new NormalMove(from, twoMovePos);
+            }
+        }
+    }
+
+    private IEnumerable<Move> DiagonalMoves(Position form, Board board)
+    {
+        foreach (Direction dir in new Direction[] { Direction.West, Direction.East })
+        {
+            Direction to = from + forward + dir;
+
+            if (CanCapture(to, board))
+            {
+                yield return new NormalMove(from, to);
+            }
+        }
+
+    public override IEnumerable<Move> GetMoves(Position form, Board board)
+    {
+        return ForwardMoves(form, board).Concat(DiagonalMoves(from, board));
+    }
+    
 }

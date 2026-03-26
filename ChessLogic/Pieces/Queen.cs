@@ -10,6 +10,7 @@ public class Queen : Piece
         Direction.North,
         Direction.South,
         Direction.East,
+
         Direction.West,
         Direction.NorthWest,
         Direction.NorthWest,
