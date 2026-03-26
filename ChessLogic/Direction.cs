@@ -6,10 +6,10 @@ public class Direction
     public static readonly Direction South = new Direction(1, 0);
     public static readonly Direction East = new Direction(0, 1);
     public static readonly Direction West = new Direction(0, -1);
-    public static readonly Direction Northeast = North + East;
-    public static readonly Direction Northwest = North + West;
-    public static readonly Direction Southeast = South + East;
-    public static readonly Direction Southwest = South + West;
+    public static readonly Direction NorthEast = North + East;
+    public static readonly Direction NorthWest = North + West;
+    public static readonly Direction SouthEast = South + East;
+    public static readonly Direction SouthWest = South + West;
 
 
     public int RowDelta { get; }

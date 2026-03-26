@@ -5,6 +5,14 @@ public class Bishop : Piece
     public override PieceType Type => PieceType.Bishop;
     public override Player Color { get; }
 
+    private static readonly Direction[] dirs = new Direction[]
+    {
+        Direction.NorthWest,
+        Direction.NorthEast,
+        Direction.SouthWest,
+        Direction.SouthEast
+    };
+
     public Bishop(Player color)
     {
         Color = color;
@@ -15,5 +23,10 @@ public class Bishop : Piece
         Bishop copy = new Bishop(Color);
         copy.HasMoved = HasMoved;
         return copy;
+    }
+
+    public override IEnumerable<Move> GetMoves(Position form, Board board)
+    {
+        return MovePositionInDir(form, board, dirs).Select(to => new NormalMove(form, to));
     }
 }

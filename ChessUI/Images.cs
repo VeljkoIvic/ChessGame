@@ -1,11 +1,12 @@
-﻿using ChessLogic;
+﻿using System;
+using ChessLogic;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace ChessUI;
 public static class Images
 {
-    private static readonly Dictionary<PieceType, ImageSource> whiteSources = new()
+    private static readonly Dictionary<PieceType, ImageSource> WhiteSources = new()
     {
         { PieceType.Pawn, LoadImage("Asset/PawnW.png") },
         { PieceType.Bishop, LoadImage("Asset/BishopW.png") },
@@ -15,7 +16,7 @@ public static class Images
         { PieceType.King, LoadImage("Asset/KingW.png") },
     };
 
-    private static readonly Dictionary<PieceType, ImageSource> blackSources = new()
+    private static readonly Dictionary<PieceType, ImageSource> BlackSources = new()
     {
         { PieceType.Pawn, LoadImage("Asset/PawnB.png") },
         { PieceType.Bishop, LoadImage("Asset/BishopB.png") },
@@ -34,8 +35,8 @@ public static class Images
     {
         return color switch
         {
-            Player.White => whiteSources[type],
-            Player.Black => blackSources[type],
+            Player.White => WhiteSources[type],
+            Player.Black => BlackSources[type],
             _ => null
         };
     }

@@ -59,4 +59,9 @@ public class Board
     {
         return this[pos] == null;
     }
+
+    internal bool IsEmpty(Position pos)
+    {
+        throw new NotImplementedException();
+    }
 }
