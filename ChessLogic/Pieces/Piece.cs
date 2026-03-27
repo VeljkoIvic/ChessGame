@@ -32,8 +32,8 @@ public abstract class Piece
 
     }
 
-    protected IEnumerable<Position> MovePositionInDir(Position form, Board board, Direction[] dirs)
+    protected IEnumerable<Position> MovePositionInDir(Position from, Board board, Direction[] dirs)
     {
-        return dirs.SelectMany(dir => MovePositionInDir(from, board, dir));
+        return dirs.SelectMany(dir => MovePositionInDir(from, board, dirs));
     }
 }
