@@ -59,21 +59,22 @@ public class Pawn : Piece
         }
     }
 
-    private IEnumerable<Move> DiagonalMoves(Position form, Board board)
+    private IEnumerable<Move> DiagonalMoves(Position from, Board board)
     {
         foreach (Direction dir in new Direction[] { Direction.West, Direction.East })
         {
-            Direction to = from + forward + dir;
+            Position to = from + forward + dir;
 
             if (CanCapture(to, board))
             {
                 yield return new NormalMove(from, to);
             }
         }
+    }
 
-    public override IEnumerable<Move> GetMoves(Position form, Board board)
+    public override IEnumerable<Move> GetMoves(Position from, Board board)
     {
-        return ForwardMoves(form, board).Concat(DiagonalMoves(from, board));
+        return ForwardMoves(from, board).Concat(DiagonalMoves(from, board));
     }
     
 }

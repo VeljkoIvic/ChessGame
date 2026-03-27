@@ -47,7 +47,7 @@ public class King : Piece
         }
     }
 
-    public override IEnumerable<Move> getMoves(Position from, Board board)
+    public override IEnumerable<Move> GetMoves(Position from, Board board)
     {
         foreach (Position to in MovePositions(from, board))
         {
