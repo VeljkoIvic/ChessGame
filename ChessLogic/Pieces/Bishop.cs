@@ -27,6 +27,6 @@ public class Bishop : Piece
 
     public override IEnumerable<Move> GetMoves(Position form, Board board)
     {
-        return MovePositionInDir(form, board, dirs).Select(to => new NormalMove(form, to));
+        return MovePositionsInDirs(form, board, dirs).Select(to => new NormalMove(form, to));
     }
 }
