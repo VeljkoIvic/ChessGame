@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using ChessLogic;
+﻿using ChessLogic;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 

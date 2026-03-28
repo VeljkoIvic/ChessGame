@@ -27,6 +27,7 @@ public partial class MainWindow : Window
 
         gameState = new GameState(Player.White, Board.Initial());
         DrawBoard(gameState.Board);
+        SetCursor(gameState.CurrentPlayer);
     }
 
     private void InitializeBoard()
@@ -108,6 +109,7 @@ public partial class MainWindow : Window
     {
         gameState.MakeMove(move);
         DrawBoard(gameState.Board);
+        SetCursor(gameState.CurrentPlayer);
     }
 
     private void CacheMoves(IEnumerable<Move> moves)
@@ -135,6 +137,18 @@ public partial class MainWindow : Window
         foreach (Position to in moveCache.Keys)
         {
             highlights[to.Row, to.Column].Fill = Brushes.Transparent;
+        }
+    }
+
+    private void SetCursor(Player player)
+    {
+        if (player == Player.White)
+        {
+            Cursor = ChessCursors.WhiteCursor;
+        }
+        else
+        {
+            Cursor = ChessCursors.BlackCursor;
         }
     }
 }
