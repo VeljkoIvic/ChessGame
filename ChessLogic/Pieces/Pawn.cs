@@ -50,7 +50,7 @@ public class Pawn : Piece
         {
             yield return new NormalMove(from, oneMovePos);
 
-            Position twoMovePos = from + forward;
+            Position twoMovePos = oneMovePos + forward;
 
             if (!HasMoved && CanMoveTo(twoMovePos, board))
             {

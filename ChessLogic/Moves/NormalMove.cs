@@ -16,7 +16,7 @@ public class NormalMove : Move
     {
         Piece piece = board[FromPos];
         board[ToPos] = piece;
-        board[FromPos] = piece;
+        board[FromPos] = null;
         piece.HasMoved = true;
     }
 }

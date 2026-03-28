@@ -1,29 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
 using ChessLogic;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace ChessUI;
+
 public static class Images
 {
     private static readonly Dictionary<PieceType, ImageSource> WhiteSources = new()
     {
-        { PieceType.Pawn, LoadImage("Asset/PawnW.png") },
-        { PieceType.Bishop, LoadImage("Asset/BishopW.png") },
-        { PieceType.Knight, LoadImage("Asset/KnightW.png") },
-        { PieceType.Rook, LoadImage("Asset/RookW.png") },
-        { PieceType.Queen, LoadImage("Asset/QueenW.png") },
-        { PieceType.King, LoadImage("Asset/KingW.png") },
+        { PieceType.Pawn, LoadImage("Assets/PawnW.png") },
+        { PieceType.Bishop, LoadImage("Assets/BishopW.png") },
+        { PieceType.Knight, LoadImage("Assets/KnightW.png") },
+        { PieceType.Rook, LoadImage("Assets/RookW.png") },
+        { PieceType.Queen, LoadImage("Assets/QueenW.png") },
+        { PieceType.King, LoadImage("Assets/KingW.png") },
     };
 
     private static readonly Dictionary<PieceType, ImageSource> BlackSources = new()
     {
-        { PieceType.Pawn, LoadImage("Asset/PawnB.png") },
-        { PieceType.Bishop, LoadImage("Asset/BishopB.png") },
-        { PieceType.Knight, LoadImage("Asset/KnightB.png") },
-        { PieceType.Rook, LoadImage("Asset/RookBB.png") },
-        { PieceType.Queen, LoadImage("Asset/QueenB.png") },
-        { PieceType.King, LoadImage("Asset/KingB.png") },
+        { PieceType.Pawn, LoadImage("Assets/PawnB.png") },
+        { PieceType.Bishop, LoadImage("Assets/BishopB.png") },
+        { PieceType.Knight, LoadImage("Assets/KnightB.png") },
+        { PieceType.Rook, LoadImage("Assets/RookB.png") },
+        { PieceType.Queen, LoadImage("Assets/QueenB.png") },
+        { PieceType.King, LoadImage("Assets/KingB.png") },
     };
 
     private static ImageSource LoadImage(string filePath)
