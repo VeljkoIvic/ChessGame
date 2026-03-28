@@ -1,6 +1,8 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Drawing;
+using System.Windows;
+using System.Windows.Input;
 using ChessLogic;
+using Image = System.Windows.Controls.Image;
 
 namespace ChessUI
 {
@@ -10,8 +12,12 @@ namespace ChessUI
     public partial class MainWindow : Window
     {
         private readonly Image[,] pieceImages = new Image[8, 8];
+        private readonly Rectangle[,] highlights = new Rectangle[8, 8];
+        private readonly Dictionary<Position, Move> moveCache = new Dictionary<Position, Move>();
+
 
         private GameState gameState;
+        private Position selectedPos = null;
 
         public MainWindow()
         {
@@ -45,6 +51,11 @@ namespace ChessUI
                     pieceImages[r, c].Source = Images.GetImage(piece);
                 }
             }
+        }
+
+        private void BoardGrid_OnMouseDown_(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
