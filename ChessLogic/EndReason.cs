@@ -1,6 +1,6 @@
 ﻿namespace ChessLogic;
 
-internal enum EndReason
+public enum EndReason
 {
     Checkmate,
     Stalemate,

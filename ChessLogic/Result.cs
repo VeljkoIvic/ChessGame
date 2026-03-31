@@ -1,4 +1,4 @@
-﻿snamespace ChessLogic;
+﻿namespace ChessLogic;
 
 public class Result
 {
