@@ -4,7 +4,7 @@ public enum EndReason
 {
     Checkmate,
     Stalemate,
-    FiftyMvoeRule,
+    FiftyMoveRule,
     InsufficientMaterial,
     ThreefoldRepetition
 }
