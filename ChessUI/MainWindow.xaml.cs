@@ -61,6 +61,11 @@ public partial class MainWindow : Window
 
     private void BoardGrid_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        if (IsMenuOnScreen())
+        {
+            return;
+        }
+
         Point point = e.GetPosition(BoardGrid);
         Position pos = ToSquarePosition(point);
         
@@ -110,6 +115,11 @@ public partial class MainWindow : Window
         gameState.MakeMove(move);
         DrawBoard(gameState.Board);
         SetCursor(gameState.CurrentPlayer);
+
+        if (gameState.IsGameOver())
+        {
+            ShwowGameOverMenu();
+        }
     }
 
     private void CacheMoves(IEnumerable<Move> moves)
@@ -150,5 +160,38 @@ public partial class MainWindow : Window
         {
             Cursor = ChessCursors.BlackCursor;
         }
+    }
+
+    private bool IsMenuOnScreen()
+    {
+        return MenuContainer.Content != null;
+    }
+
+    private void ShwowGameOverMenu()
+    {
+        GameOverMenu gameOverMenu = new GameOverMenu(gameState);
+        MenuContainer.Content = gameOverMenu;
+
+        gameOverMenu.OptoonSelected += option =>
+        {
+            if (option == Option.Restart)
+            {
+                MenuContainer.Content = null;
+                RestartGame();
+            }
+            else
+            {
+                Application.Current.Shutdown();
+            }
+        };
+    }
+
+    private void RestartGame()
+    {
+        HideHighlights();
+        moveCache.Clear();
+        gameState = new GameState(Player.White, Board.Initial());
+        DrawBoard(gameState.Board);
+        SetCursor(gameState.CurrentPlayer);
     }
 }

@@ -43,8 +43,8 @@ public partial class GameOverMenu : UserControl
     {
         return reason switch
         {
-            EndReason.Stalemate => $"STSLEMATE - {PlayerString(currentPlayer)} CAN`T MOVE!",
-            EndReason.Checkmate => $"STSLEMATE - {PlayerString(currentPlayer)} CAN`T MOVE!",
+            EndReason.Stalemate => $"STALEMATE - {PlayerString(currentPlayer)} CAN`T MOVE!",
+            EndReason.Checkmate => $"CHECKMATE - {PlayerString(currentPlayer)} CAN`T MOVE!",
             EndReason.FiftyMoveRule => "FIFTY-MOVE RULE",
             EndReason.InsufficientMaterial => "INSUFFICIENT MATERIAL",
             EndReason.ThreefoldRepetition => "THREEFOLD REPETITION",
